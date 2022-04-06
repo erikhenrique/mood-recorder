@@ -15,7 +15,6 @@ help()
 	echo '$ mood tks \e[3msilva\e[0m "\e[3mit was very funny our last pair!\e[0m"'
 	echo '$ mood clear: Clean the whole history'
 	echo '$ mood show: Shows all your moods'
-	
 }
 
 
@@ -33,25 +32,28 @@ tks()
 
 show()
 {
-	cat "$CONFIG_FILE_PREFIX-good$CONFIG_FILE_EXT"
 	if [ -s "$CONFIG_FILE_PREFIX-good$CONFIG_FILE_EXT" ]; then
 		echo "What was good? "
 		cat "$CONFIG_FILE_PREFIX-good$CONFIG_FILE_EXT"
-		echo ''
 	fi
-	echo "What we have to improve? "
-	cat "$CONFIG_FILE_PREFIX-improve$CONFIG_FILE_EXT"
-	echo ''
-	echo 'Special thanks to:'
-	cat "$CONFIG_FILE_PREFIX-tks$CONFIG_FILE_EXT"
+	if [ -s "$CONFIG_FILE_PREFIX-improve$CONFIG_FILE_EXT" ]; then
+		echo ''
+		echo "What we have to improve? "
+		cat "$CONFIG_FILE_PREFIX-improve$CONFIG_FILE_EXT"
+	fi
+	if [ -s "$CONFIG_FILE_PREFIX-tks$CONFIG_FILE_EXT" ]; then
+		echo ''
+		echo 'Special thanks to:'
+		cat "$CONFIG_FILE_PREFIX-tks$CONFIG_FILE_EXT"
+	fi
 }
 
 
 clear()
 {
-    echo '' > "$CONFIG_FILE_PREFIX-good$CONFIG_FILE_EXT"
-	echo '' > "$CONFIG_FILE_PREFIX-improve$CONFIG_FILE_EXT" 
-	echo '' > "$CONFIG_FILE_PREFIX-tks$CONFIG_FILE_EXT"
+    cat /dev/null > "$CONFIG_FILE_PREFIX-good$CONFIG_FILE_EXT"
+	cat /dev/null > "$CONFIG_FILE_PREFIX-improve$CONFIG_FILE_EXT" 
+	cat /dev/null > "$CONFIG_FILE_PREFIX-tks$CONFIG_FILE_EXT"
 }
 
 
