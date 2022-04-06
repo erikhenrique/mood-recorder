@@ -7,7 +7,7 @@ This is the mood recorder
 
 ## Usage
 ```
-$ mood good "Code Review time was improved"
+$ mood good "Fantastic reviews on PR"
 $ mood improve "Focus on technical debts"
 $ mood tks <name> "it was very funny our last pair!"
 $ mood clear: Clean the whole history
@@ -19,9 +19,9 @@ $ mood show: Shows all your moods
 
 ```
 What was good?
-[06/04 - Wednesday] Code Review time was improved
+[06/04 - Wednesday] Fantastic reviews on PR
 
-What we have to improve?
+What do we have to improve?
 [06/04 - Wednesday] Focus on technical debts
 
 Special thanks to:
